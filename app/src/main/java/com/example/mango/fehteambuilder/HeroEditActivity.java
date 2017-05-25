@@ -2,7 +2,7 @@ package com.example.mango.fehteambuilder;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,7 +15,7 @@ import java.util.List;
 public class HeroEditActivity extends AppCompatActivity {
 
 
-    FirebaseDatabase database;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myHeroRef;
 
     private List<Unit> heroDB;
@@ -29,8 +29,9 @@ public class HeroEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hero_edit);
         currentUnit = new Unit();
         selectedUnitName = "takumi";
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myHeroRef = database.getReference().child("hero").child(selectedUnitName);
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //DatabaseReference myHeroRef = database.getReference().child("hero").child(selectedUnitName);
+        //addDBListener();
     }
 
     private void addDBListener(){
@@ -38,6 +39,8 @@ public class HeroEditActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot){
                 String name = (String)dataSnapshot.child("name").getValue();
                 System.out.println(name);
+                TextView mTV = (TextView) findViewById(R.id.textViewHeroName);
+                mTV.setText(name);
             }
 
             public void onCancelled(DatabaseError error){
