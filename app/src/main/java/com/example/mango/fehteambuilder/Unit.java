@@ -7,19 +7,19 @@ package com.example.mango.fehteambuilder;
 public class Unit {
 
     private String _unitName, _unitTitle;
-    private int[] _baseStats;
+    private int[][] _baseStats;
     //private Skill[] _baseSkills;
     private String[] _baseSkills;
     private MyEnums.MoveType _moveType;
     private MyEnums.WeaponType _weaponType;
-    private int _boonStat, _boonStatAmount;
-    private int _baneStat, _baneStatAmount;
+    private int _boonStat;
+    private int _baneStat;
 
     private Skill[] _plannedSkills;
     private int _totalSPCost, _remainingSPCost;
     //private boolean[] _skillObtained;
 
-    Unit(String _name, String _title, int[] _baseStats, String[] _baseSkills,
+    Unit(String _name, String _title, int[][] _baseStats, String[] _baseSkills,
          MyEnums.MoveType _moveType, MyEnums.WeaponType _weaponType){
         this._unitName = _name;
         this._unitTitle = _title;
@@ -38,11 +38,11 @@ public class Unit {
         this._weaponType = null;
     }
 
-    public int[] get_baseStats() {
+    public int[][] get_baseStats() {
         return _baseStats;
     }
 
-    public void set_baseStats(int[] _baseStats) {
+    public void set_baseStats(int[][] _baseStats) {
         this._baseStats = _baseStats;
     }
 
