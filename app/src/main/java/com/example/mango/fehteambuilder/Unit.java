@@ -8,7 +8,8 @@ public class Unit {
 
     private String _unitName, _unitTitle;
     private int[] _baseStats;
-    private Skill[] _baseSkills;
+    //private Skill[] _baseSkills;
+    private String[] _baseSkills;
     private MyEnums.MoveType _moveType;
     private MyEnums.WeaponType _weaponType;
     private int _boonStat, _boonStatAmount;
@@ -18,7 +19,24 @@ public class Unit {
     private int _totalSPCost, _remainingSPCost;
     //private boolean[] _skillObtained;
 
-    
+    Unit(String _name, String _title, int[] _baseStats, String[] _baseSkills,
+         MyEnums.MoveType _moveType, MyEnums.WeaponType _weaponType){
+        this._unitName = _name;
+        this._unitTitle = _title;
+        this._baseStats = _baseStats;
+        this._baseSkills = _baseSkills;
+        this._moveType = _moveType;
+        this._weaponType = _weaponType;
+    }
+
+    Unit(){
+        this._unitName = "null";
+        this._unitTitle = "null of nulls";
+        this._baseStats = null;
+        this._baseSkills = null;
+        this._moveType = null;
+        this._weaponType = null;
+    }
 
     public int[] get_baseStats() {
         return _baseStats;
@@ -28,11 +46,11 @@ public class Unit {
         this._baseStats = _baseStats;
     }
 
-    public Skill[] get_baseSkills() {
+    public String[] get_baseSkills() {
         return _baseSkills;
     }
 
-    public void set_baseSkills(Skill[] _baseSkills) {
+    public void set_baseSkills(String[] _baseSkills) {
         this._baseSkills = _baseSkills;
     }
 
